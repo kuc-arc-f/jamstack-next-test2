@@ -5,7 +5,6 @@ import LibCommon from '../libs/LibCommon'
 import LibPagenate from '../libs/LibPagenate'
 import TopHeadBox from '../components/TopHeadBox'
 import IndexRow from './IndexRow';
-import PagesRow from './PagesRow';
 //
 function Page(data) {
 console.log(data.blogs)
