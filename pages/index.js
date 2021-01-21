@@ -7,7 +7,7 @@ import TopHeadBox from '../components/TopHeadBox'
 import IndexRow from './IndexRow';
 //
 function Page(data) {
-//console.log(data.blogs)
+//console.log(data.blogs.contents)
   var items = data.blogs.contents
   return (
     <Layout>
@@ -22,8 +22,9 @@ function Page(data) {
                 </div>
               </div>
               {items.map((item, index) => {
+                //console.log(item.id ,item.createdAt )
                 return (<IndexRow key={index}
-                        id={item.id} title={item.title} />       
+                        id={item.id} title={item.title} date={item.createdAt} />       
                 )
               })}              
             </div>

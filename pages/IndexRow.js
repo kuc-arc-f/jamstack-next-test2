@@ -16,7 +16,7 @@ const IndexRow = props => (
                 <span className="mr-2 time_icon_wrap">
                   <i className="far fa-calendar"></i>
                 </span>
-                {props.created_at} , ID : {props.id}
+                {props.date} , ID : {props.id}
             </p>  
           </li>
       </ul>

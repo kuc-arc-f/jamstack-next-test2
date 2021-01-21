@@ -7,6 +7,7 @@ import Layout from '../../components/layout'
 //import LibCommon from '../libs/LibCommon'
 //
 const BlogId = ({blog}) => {
+//console.log(blog)
   var content = marked(blog.content)
   return (
   <Layout>
@@ -21,6 +22,7 @@ const BlogId = ({blog}) => {
       </div>
       <hr />            
       <h1>{blog.title}</h1>
+      Date: {blog.createdAt}
       <hr />
       <div dangerouslySetInnerHTML={{__html: `${content}`}}></div>
     </div>
