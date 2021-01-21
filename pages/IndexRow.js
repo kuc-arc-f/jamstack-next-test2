@@ -3,7 +3,7 @@ import Link from 'next/link';
 const IndexRow = props => (
   <div className="col-sm-12 post_items_wrap">
     <div className="div_news_rows">
-      <Link href={`/${props.show_id}`} >
+      <Link href={`/posts/${props.id}`} >
         <a>
           <h3 className="ml-10"> {props.title}</h3>
         </a>
@@ -21,7 +21,6 @@ const IndexRow = props => (
           </li>
       </ul>
     </div>    
-
     <hr className="hr_ex1" />
   </div>
 );

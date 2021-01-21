@@ -35,7 +35,7 @@ function Page(data) {
 }
 //
 export const getStaticProps = async context => {
-  console.log( process.env.API_KEY )
+//console.log( process.env.API_KEY )
     const key = {
       headers: {'X-API-KEY': process.env.API_KEY},
     };
