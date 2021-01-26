@@ -4,11 +4,13 @@ import Layout from '../components/layout'
 import LibCommon from '../libs/LibCommon'
 import LibPagenate from '../libs/LibPagenate'
 import TopHeadBox from '../components/TopHeadBox'
+import PagingBox from '../components/PagingBox'
 import IndexRow from './IndexRow';
 //
 function Page(data) {
-//console.log(data.blogs.contents)
   var items = data.blogs.contents
+  var paginateDisp = data.display
+//console.log(paginateDisp)
   return (
     <Layout>
       <TopHeadBox />
@@ -26,7 +28,9 @@ function Page(data) {
                 return (<IndexRow key={index}
                         id={item.id} title={item.title} date={item.createdAt} />       
                 )
-              })}              
+              })}
+              <hr /> 
+              <PagingBox page="1" paginateDisp={paginateDisp} />                            
             </div>
           </div>          
         </div>
@@ -41,14 +45,16 @@ export const getStaticProps = async context => {
       headers: {'X-API-KEY': process.env.API_KEY},
     };
     const res = await fetch(
-      `https://jamstack-test-kuc.microcms.io/api/v1/blog1`,
+    `https://jamstack-test-kuc.microcms.io/api/v1/blog1?orders=-publishedAt`,
       key,
     );
     const blogs = await res.json();
-//    console.log(blogs)
+    LibPagenate.init()
+    var display = LibPagenate.is_paging_display(blogs.contents.length)
+//console.log("display=", display )    
     return {
       props : {
-        blogs: blogs,
+        blogs: blogs, display: display
       }
     };
   }
